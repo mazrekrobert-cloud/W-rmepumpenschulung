@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHK-Wissen mit Robert · Wärmepumpenschulung</title>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Technik verstehen mit Robert | Wärmepumpenschule</title>
 <style>
 :root{font-family:system-ui,sans-serif;color:#e9f2fa;background:#0b1523;font-size:17px}*{box-sizing:border-box}body{margin:0}header{padding:32px max(22px,5vw);border-bottom:1px solid #293c50;background:#101f30}header small{color:#5cddc4;letter-spacing:.14em}h1{font-size:clamp(28px,4vw,48px);margin:12px 0}p{line-height:1.65;color:#bdcede}main{max-width:1200px;margin:auto;padding:24px}nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}button,input,select{font:inherit}button{border:1px solid #395069;background:#1c3046;color:#eff8ff;padding:12px 18px;border-radius:10px;cursor:pointer}button:hover,button[aria-selected=true]{background:#19685c;border-color:#5cddc4}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffda83;outline-offset:3px}button:disabled{opacity:.5;cursor:default}.card{border:1px solid #2b4056;border-radius:18px;background:#112236;padding:24px;margin-bottom:20px}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}h2{margin-top:0;font-size:26px}h3{color:#69e2ca}.tag{color:#75decb;font-size:14px}.note{font-size:14px;color:#9fb4c9}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.feedback{padding:16px;background:#193a49;border-radius:12px;margin-top:16px;line-height:1.6}.answers{display:grid;gap:10px}.answers button{text-align:left}input,select{background:#0a1929;color:white;border:1px solid #587087;border-radius:8px;padding:12px;max-width:100%}label{display:block;margin:15px 0 8px}progress{width:190px;accent-color:#5cddc4}svg{width:100%;height:auto}svg text{font-family:system-ui,sans-serif;fill:#eaf3ff;font-size:16px}svg .sub{fill:#afc4d7;font-size:13px}.flow{fill:none;stroke-width:7;stroke-dasharray:12 9;animation:move 1.4s linear infinite}.paused .flow{animation-play-state:paused}@keyframes move{to{stroke-dashoffset:-42}}@media(prefers-reduced-motion:reduce){.flow{animation:none}}.svgbutton{cursor:pointer}.svgbutton rect{fill:#18334a;stroke:#52738d;stroke-width:2}.svgbutton:hover rect,.svgbutton:focus rect{stroke:#68e8c9;stroke-width:4}.hidden{display:none!important}footer{padding:20px;color:#93a9c0;font-size:13px}a{color:#72e5d0}@media(max-width:850px){.grid{grid-template-columns:1fr}main{padding:15px}.card{padding:18px}header{padding:25px 20px}}
 
@@ -7,8 +7,86 @@
 button[aria-pressed="true"]{background:#19685c;border-color:#5cddc4}
 .formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.formula-grid article{background:#0b1b2d;border:1px solid #36546a;border-radius:14px;padding:22px}.formula-display{font-size:clamp(24px,3vw,36px);color:#7be6d0;margin:22px 0;font-weight:700;letter-spacing:.015em}.badge{background:#1e3b4c;border-radius:20px;padding:9px 15px;font-size:14px}.calc-selectors{display:grid;grid-template-columns:2fr 1fr;gap:20px}.calc-selectors select{width:100%}.formula-steps{display:grid;gap:12px;margin:20px 0}.formula-step{padding:18px;border-left:3px solid #64dcc4;background:#152e42;line-height:1.7}.calc-story{font-size:18px;line-height:1.8;color:#d5e2ef}.calc-answer{background:#0d1c2d;padding:18px;border-radius:12px;margin:14px 0;border:1px solid #2b4359}.calc-answer label{margin-top:0}.calc-answer input{width:180px}.calc-answer select{max-width:150px}.calc-answer [aria-invalid=true]{border:2px solid #ffb28f}.calc-result{margin-top:10px;line-height:1.6}.correct-result{color:#85e8ba}.wrong-result{color:#ffd19c}.calc-solution{padding:22px;background:#15333d;border-radius:14px;margin-top:20px;line-height:1.75}.calc-solution li{margin:10px 0}.calc-solution p{color:#d1e5e8}.calc-work{width:100%;min-height:130px;resize:vertical;background:#0a1929;border:1px solid #587087;border-radius:10px;color:#eaf5ff;padding:15px;font:inherit;line-height:1.6}.calc-task-title{margin-top:14px}.exam-active{border:2px solid #74e6c9!important}.academy-hero{background:linear-gradient(110deg,#123747,#112236)}#examJump button{padding:9px 15px}.calc-stats{font-size:22px;color:#77e0cb}#calcRecord td{vertical-align:top}@media(max-width:750px){.formula-grid,.calc-selectors{grid-template-columns:1fr}.calc-answer input{width:140px}.calc-answer .row{gap:8px}.formula-grid article{padding:16px}}
 
+
+/* Gemeinsames Branding zum Heizungsrechner – identische Navy-Palette und Wortmarke. */
+:root{color-scheme:dark;--navy:#06162a;--blue:#143d70;--cyan:#47beff;--orange:#ff962f;--muted:#a1b5cc;--border:#2a486c;--bg:#07172a;--white:#ffffff;--ink:#f1f7ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+body{background:radial-gradient(ellipse at 80% 0,#15345b 0,transparent 45%),#07172a;color:var(--ink);min-height:100vh}
+header.brandbar{padding:0;border-bottom:1px solid #315071;background:#091c33;box-shadow:0 10px 28px #0000001c}
+.brandbar .brandline{width:min(1160px,calc(100% - 36px));margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:22px;padding:16px 0}
+.brandbar .brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:#f5f9ff}
+.brandbar svg.brandicon{width:75px;height:75px;min-width:75px;flex:none}
+.brandbar .brandtitle{font-size:clamp(20px,2.35vw,32px);font-weight:850;letter-spacing:-.05em;line-height:1.09;color:#fff}
+.brandbar .brandtitle small{display:block;font-size:.69em;font-weight:600;letter-spacing:-.02em;margin-top:5px;color:#bcd5ef}
+.brandbar .brandtitle b{color:white}
+.brandbar .brandsub{font-size:13px;letter-spacing:.115em;color:#8fcbed;margin-top:7px}
+.brandbar .headlabel{font-size:12px;font-weight:800;color:#8fcbed;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.hero{background:radial-gradient(circle at 85% 16%,#174976 0%,transparent 40%),linear-gradient(112deg,#061325,#0a2545 55%,#123b63);border-bottom:1px solid #244666;color:#fff;overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;width:370px;height:370px;border:1px solid #ffffff21;border-radius:50%;right:-90px;top:-150px;pointer-events:none}
+.hero-inner{width:min(1160px,calc(100% - 36px));margin:auto;padding:50px 0 42px;position:relative;z-index:1}
+.hero-eyebrow{color:#71caff;font-size:12px;letter-spacing:.18em;font-weight:850;text-transform:uppercase}
+.hero h1{font-size:clamp(32px,4.8vw,57px);line-height:1.12;max-width:770px;letter-spacing:-.045em;margin:11px 0 14px;color:white}
+.hero p{color:#cbdef1;font-size:17px;max-width:800px;margin:0}
+.hero-features{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}
+.hero-features span{font-size:12px;font-weight:750;border:1px solid #5982a569;border-radius:30px;padding:7px 13px;color:#e5f4ff;background:#1f456931}
+.learning-progress{display:inline-block;background:#07192d99;border:1px solid #396185;border-radius:14px;padding:12px 17px;max-width:100%}
+.learning-progress-title{color:#abd5f0;font-size:12px;font-weight:750;letter-spacing:.04em;margin-bottom:8px}
+.learning-progress .row{gap:13px}.learning-progress progress{width:min(340px,52vw);height:14px;accent-color:#47beff}.learning-progress span{color:#d5e9fa;font-size:13px;font-weight:700}
+main{max-width:1200px;margin:auto;padding:28px 22px}
+main nav[aria-label="Lernbereiche"]{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px;padding:12px;background:#0b2139;border:1px solid #284766;border-radius:17px}
+button{background:#143351;color:#e9f6ff;border:1px solid #376084;border-radius:11px;transition:background-color .18s,border-color .18s,transform .18s}
+button:hover,button[aria-selected="true"],button[aria-pressed="true"]{background:linear-gradient(130deg,#1c5c8e,#16456f);border-color:#4cbdf5;color:white}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #47beff;outline-offset:3px}
+main nav button{font-weight:700;font-size:14px;flex:1 1 auto}
+main nav button[aria-selected="true"]{box-shadow:inset 0 0 0 1px #7dceff33,0 4px 15px #02182d55}
+.card{background:linear-gradient(150deg,#102943,#0b2139 90%);border:1px solid #2a4667;border-radius:19px;box-shadow:0 16px 35px #01081452;color:#eff7ff}
+.card h2{color:#f4f9ff}.card h3,h3{color:#8dd7ff}.tag{color:#88cffa}.note{color:#a7bcd2}
+p{color:#b9ccdf}a{color:#86d0fa}
+input,select,textarea,.calc-work{background:#071b31;color:#f2f9ff;border:1px solid #355677}
+input:focus,select:focus,textarea:focus{border-color:#47beff}
+progress,.controls input[type="range"]{accent-color:#47beff}
+.feedback{background:#113957;border:1px solid #31536f;color:#e4f4ff}
+.metric{background:#091d34;border:1px solid #2b4d6f;border-radius:13px}
+.metric strong{color:#86d8ff}
+.labscene{background:#071b31;border:1px solid #274762}
+.labscene svg rect.box{fill:#133a5a;stroke:#5682a7}
+.svgbutton:hover rect,.svgbutton:focus rect{stroke:#69caff}
+th{color:#8ed9ff;border-bottom-color:#355474}td{border-bottom-color:#274260}
+.callout{border-left-color:#47beff;background:#0c3351}
+summary{color:#91d5ff}
+.formula-grid article{background:#0b2a47;border:1px solid #315879}
+.formula-display{color:#88dfff}
+.formula-step{background:#0c3352;border-left-color:#47beff}
+.calc-answer{background:#0a2139;border-color:#315474}
+.calc-solution{background:#0c344d;color:#e3f5ff}
+.badge{background:#154062;color:#c4e8ff;border:1px solid #2c5e85}
+.calc-stats{color:#86d8ff}
+.exam-active{border-color:#47beff!important}
+.academy-hero{background:linear-gradient(110deg,#133f65,#0d2844)}
+.calc-work{background:#071b31}
+footer{color:#a0b6cc;border-top:1px solid #294363;margin-top:25px;padding-top:24px}
+@media(max-width:850px){.brandbar .headlabel{display:none}.brandbar svg.brandicon{width:64px;height:64px;min-width:64px}.hero-inner{padding:42px 0}.card{padding:18px}}
+@media(max-width:540px){.brandbar .brandline{width:calc(100% - 24px);padding:13px 0}.brandbar .brand{gap:10px}.brandbar svg.brandicon{width:57px;height:57px;min-width:57px}.brandbar .brandtitle{font-size:20px}.brandbar .brandsub{font-size:10px;letter-spacing:.07em;line-height:1.3}.hero-inner{width:calc(100% - 24px);padding:35px 0 30px}.hero h1{font-size:33px}.hero p{font-size:15px}.learning-progress{width:100%}main{padding:14px 12px}main nav[aria-label="Lernbereiche"]{padding:9px;gap:7px}main nav button{flex:1 1 calc(50% - 9px);font-size:12px;padding:10px 6px}}
+@media print{body{background:#fff;color:#111}.brandbar,.hero,.card{box-shadow:none}.card{background:#fff;color:#111}.card h2,.card h3,.card p{color:#111}}
+
 </style></head><body>
-<header><small>SHK-WISSEN MIT ROBERT</small><h1>Versteh die Technik hinter der Wärme.</h1><p>36 Lerneinheiten · 12 Module · 5 Animationsansichten · 36 mehrteilige Rechenaufgaben. Grundlagen verstehen, Messwerte deuten und Störungen systematisch eingrenzen.</p><div class="row"><progress id="progress" max="36" value="0"></progress><span id="progressText"></span></div></header>
+<header class="brandbar"><div class="wrap brandline">
+<a class="brand" href="#" aria-label="Technik verstehen mit Robert – Start">
+<svg class="brandicon" viewBox="0 0 100 100" role="img" aria-label="Schneeflocke und Flamme">
+<path d="M48 5 A45 45 0 0 0 49 95" fill="none" stroke="#0b3765" stroke-width="8"/>
+<path d="M56 6 A45 45 0 0 1 56 95" fill="none" stroke="#f97820" stroke-width="8"/>
+<path d="M48 15 V85 M18 50 H48 M25 28 L48 50 L25 72 M36 20 L48 33 L60 21 M36 80 L48 67" fill="none" stroke="#26aee9" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55 89 C84 70 94 47 70 20 C72 45 58 44 58 56 C50 47 53 35 56 27 C34 51 37 70 55 89 Z" fill="#fc7926"/><path d="M60 80 C72 68 72 55 66 43 C66 61 52 60 60 80 Z" fill="#ffc044"/>
+</svg>
+<div><div class="brandtitle">Technik verstehen<small>mit <b>Robert</b></small></div><div class="brandsub">SHK-Wissen einfach erklärt</div></div>
+</a><div class="headlabel">Deine Wärmepumpenschule</div>
+</div></header>
+<section class="hero" aria-label="Wärmepumpenschule Einführung"><div class="hero-inner">
+<div class="hero-eyebrow">SHK-WISSEN · DIE DIGITALE LERNWERKSTATT</div>
+<h1>Versteh die Technik<br>hinter der Wärme.</h1>
+<p>36 Lerneinheiten · 12 Module · 5 Animationsansichten · 36 mehrteilige Rechenaufgaben. Grundlagen verstehen, Messwerte deuten und Störungen systematisch eingrenzen.</p>
+<div class="hero-features"><span>❄ Kältekreislauf</span><span>◈ Rechenschule</span><span>⚙ Praxis &amp; Diagnose</span></div>
+<div class="learning-progress"><div class="learning-progress-title">Dein Lernfortschritt</div><div class="row"><progress id="progress" max="36" value="0"></progress><span id="progressText" aria-live="polite"></span></div></div>
+</div></section>
 <main><nav aria-label="Lernbereiche"><button data-tab="cycle" aria-selected="false">① Kältekreislauf</button><button data-tab="lab" aria-selected="true">② Animationslabor</button><button data-tab="lessons" aria-selected="false">③ Schulprogramm</button><button data-tab="academy" aria-selected="false">④ Rechenschule</button><button data-tab="math" aria-selected="false" hidden>④ Schnellübungen</button><button data-tab="fault" aria-selected="false">⑤ Störungssuche</button></nav>
 <section id="cycle" hidden><div class="grid"><div class="card"><div class="row"><h2>Vier Bauteile. Ein Kreislauf.</h2><button id="pause">Animation pausieren</button></div><p class="note">Heizbetrieb · schematische R290-Monoblock-Wärmepumpe. Bauteile anklicken oder mit Tab auswählen.</p>
 <svg viewBox="0 0 760 590" role="img" aria-label="Kältekreislauf: Verdampfer links, Verdichter oben, Verflüssiger rechts, Expansionsventil unten. Heizwasser als eigener Kreis rechts.">
