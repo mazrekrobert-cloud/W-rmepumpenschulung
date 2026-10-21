@@ -19,6 +19,25 @@ GitHub zeigt den Quelltext. Die heruntergeladene Datei läuft direkt im Browser 
 - Separates Wasserlabor mit veränderbarer Leistung und veränderbarem Durchfluss.
 - 18 Rechenübungen, 8 Diagnosefälle, freie Modulwahl und gespeicherter Fortschritt.
 
+## Neue Rechenschule
+
+Unter **④ Rechenschule** stehen jetzt vier Bereiche bereit:
+
+1. **Formeln verstehen:** Wärmemenge Q = m · c · Δϑ und Wärmeleistung Q̇ = ṁ · c · Δϑ unterscheiden; sechs schrittweise Herleitungen zum Umstellen; Einheitenübersicht und dokumentierter Rechenweg.
+2. **Aufgabenwerkstatt:** 36 mehrteilige Praxisaufgaben in zwölf Themen mit insgesamt 108 numerischen Teilantworten. Drei Varianten je Thema; Hauptformel und geforderte Einheit werden selbst ausgewählt.
+3. **Lernprüfung:** sechs gemischte mehrteilige Aufgaben, Auswertung erst nach Abgabe. Keine automatische Zeitbegrenzung (Richtwert 45 Minuten). Hilfebereiche sind während eines laufenden Durchgangs gesperrt. Entwürfe können im selben Browser fortgesetzt werden.
+4. **Lernstand:** getrennte Anzeige für beim ersten Versuch selbstständig gelöste Aufgaben und Lösungen mit Hilfe/Wiederholung. Theoriefortschritt bleibt separat erhalten.
+
+Die zwölf Rechenthemen: Speicher-Wärmemenge, unbekannte Masse, Temperaturänderung, Heizleistung, Volumenstrom, Spreizung/Rücklauf, Glykolgemisch mit vorgegebenen Stoffwerten, Speicherladezeit/Strombedarf, COP/Umweltwärme, Jahresbilanz/Kosten, ideale Puffer-Ladezeit und Beurteilung einer Wärmeübertragung als Kundenauftrag.
+
+Jede Aufgabe enthält drei gestufte Tipps, eine ausführliche Musterlösung, eine Plausibilitätsbetrachtung und ein Notizfeld. Bewertet werden Hauptformel (2 Punkte), Zahlenwert (2 Punkte je Teilantwort) und geforderte Einheit (1 Punkt je Teilantwort). Freie Rechenwege werden gespeichert und zum Selbstvergleich angezeigt, **nicht automatisch bewertet**. Es werden keine offiziellen Prüfungsnoten vergeben.
+
+Alle neuen Wasseraufgaben verwenden konsistent ρ ≈ 1 kg/l und c = 4,1868 kJ/(kg·K) = 1,163 Wh/(kg·K), entsprechend 0,001163 kWh/(kg·K). Temperaturabhängigkeit, Verluste und Schichtung werden nur berücksichtigt, wenn ausdrücklich vorgegeben. Glykolwerte und Strompreise sind jeweils Aufgabendaten. Antworten ohne Tausendertrennzeichen eingeben; Dezimalkomma und Dezimalpunkt werden unterstützt. Rundungstoleranz: ±0,2 % oder ±0,011, je nachdem, was größer ist.
+
+Die Aufgaben sind selbst erstellt und orientieren sich am fallbezogenen Anwenden und Dokumentieren technischer Berechnungen gemäß [§ 6 Installateur- und Heizungsbauermeisterverordnung](https://www.gesetze-im-internet.de/installateurheizungsbauermstrv/__6.html). Sie sind keine Original-Prüfungsaufgaben und decken nicht die gesamte Meisterausbildung ab.
+
+Die bisherigen 18 Schnellübungen bleiben aus der Aufgabenwerkstatt erreichbar.
+
 ## Module
 
 1. Wärme und Energie
@@ -50,4 +69,16 @@ Sensorbezeichnungen und Sollwerte sind gerätespezifisch. Arbeiten an Elektrik u
 
 Eine einzige `index.html`, ohne externe Laufzeitabhängigkeiten. Animationen sind pausierbar und berücksichtigen reduzierte Bewegung. Breite Schemata können auf kleinen Bildschirmen seitlich gescrollt werden. Fortschritt wird nach Möglichkeit lokal gespeichert; das Verhalten bei lokalen Dateien kann vom Browser abhängen. Der frühere Fortschritt der sechs alten Lektionen wird nicht übernommen, weil sich die Zuordnung geändert hat.
 
-Automatisiert geprüft mit DOM-Testumgebung: alle 36 Lektionen, 12 Module, 18 Berechnungen, acht Diagnosefälle, fünf SVG-Ansichten, Wasserbilanz, Druck-Temperatur-Rückrechnung und Referenzwerte, ungültige Eingaben, Einheitenwechsel, Pause, Voreinstellungen und Fortschrittsspeicherung/-reset. Eine visuelle Prüfung im echten Browser steht aus, da sich die Browserdatei in der Arbeitsumgebung nicht herunterladen ließ.
+Automatisiert geprüft mit DOM-Testumgebung: alle 36 Lektionen, 12 Module, 18 Berechnungen, acht Diagnosefälle, fünf SVG-Ansichten, Wasserbilanz, Druck-Temperatur-Rückrechnung und Referenzwerte, ungültige Eingaben, Einheitenwechsel, Pause, Voreinstellungen und Fortschrittsspeicherung/-reset. Die neue Rechenschule wurde zusätzlich in Chromium bei Desktop- und Handybreite geprüft, einschließlich Dezimalantworten, Prüfungsmodus, Wiederaufnahme nach Neuladen und Abgabe. Die Ansichten wurden visuell kontrolliert; Safari wurde nicht separat getestet.
+
+
+### Reproduzierbarer Test der Rechenschule
+
+Die Anwendung selbst benötigt weiterhin keine Installation. Nur für den Entwicklungstest:
+
+```sh
+npm install --no-save jsdom
+node tests/rechenschule.cjs
+```
+
+Der Test führt beide Skriptblöcke mit echtem DOM in jsdom aus und prüft alle 36 Aufgaben/108 Teilantworten, unabhängige Referenzergebnisse, Eingabevalidierung, Einheiten, Hilfestufen, Fortschritt, alle Formelumstellungen, sicheren Umgang mit Freitext sowie Prüfungsnavigation, Wiederaufnahme, leere Abgabe und Abbruch.
