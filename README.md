@@ -82,3 +82,22 @@ node tests/rechenschule.cjs
 ```
 
 Der Test führt beide Skriptblöcke mit echtem DOM in jsdom aus und prüft alle 36 Aufgaben/108 Teilantworten, unabhängige Referenzergebnisse, Eingabevalidierung, Einheiten, Hilfestufen, Fortschritt, alle Formelumstellungen, sicheren Umgang mit Freitext sowie Prüfungsnavigation, Wiederaufnahme, leere Abgabe und Abbruch.
+
+
+### Safari und mobile Kompatibilität
+
+Zielplattform ist Safari/iOS ab Version 15.4; dies ist eine Support-Zielsetzung, keine Bestätigung eines Tests auf einem echten Apple-Gerät. Die Anwendung verwendet moderne JavaScript-Syntax und Browser-APIs. Ältere Versionen werden nicht zugesichert.
+
+Breite Diagramme bleiben innerhalb ihrer Scrollfläche; Grid-Inhalte dürfen auf schmalen Bildschirmen schrumpfen. Native Auswahlfelder verwenden `change`, Texteingaben weiterhin `input`. Die Prüfungsauswertung berücksichtigt „Bewegung reduzieren“ auch beim Scrollen.
+
+Speicherfehler werden im Theorie- und Rechenfortschritt angezeigt, in einer laufenden Prüfung unmittelbar. Nach einem späteren erfolgreichen Schreibvorgang wird der Status der Rechenschule wiederhergestellt. Ein erfolgreicher Schreibvorgang ist keine dauerhafte Datensicherung: privates Surfen, gelöschte Browserdaten sowie andere Dateipfade oder Adressen können die Wiederaufnahme verhindern. Bei lokalen Dateien bleibt das Verhalten browserabhängig.
+
+Zusätzliche DOM-Regressionstests:
+
+```sh
+node tests/compatibility.cjs
+```
+
+Geprüft werden blockierte Speicherung beim Start, Speicherfehler und Erholung während einer Prüfung, Theorie-Speicherhinweis, Speicherung bestätigter Auswahlfelder, Auswahl im Animationslabor und Scrollverhalten mit reduzierter Bewegung. Beide DOM-Tests wurden erfolgreich ausgeführt; sie ersetzen keinen Layout- oder Safari-Gerätetest.
+
+Noch auf echtem iPhone/iPad und macOS Safari prüfen: Start über den tatsächlich verwendeten Datei-/URL-Weg, 320–390 px Breite und Querformat, Diagramm-Scrollen ohne überbreite Gesamtseite, Formel-/Einheitenauswahl, Dezimalkomma, geöffnete Tastatur, Prüfungswiederaufnahme nach Neuladen und Auswertung mit „Bewegung reduzieren“.

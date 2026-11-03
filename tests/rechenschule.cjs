@@ -3,11 +3,11 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const {JSDOM,VirtualConsole}=require(process.env.ROBERT_JSDOM_PATH||'jsdom');
 const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 let errors=[];
-function boot(saved={}){const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));return new JSDOM(html,{url:'https://training.example/',runScripts:'dangerously',virtualConsole:vc,beforeParse(w){w.confirm=()=>true;w.HTMLElement.prototype.scrollIntoView=function(){};for(const [k,v] of Object.entries(saved))w.localStorage.setItem(k,v)}})}
+function boot(saved={}){const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));return new JSDOM(html,{url:'https://training.example/',runScripts:'dangerously',virtualConsole:vc,beforeParse(w){w.matchMedia=()=>({matches:false});w.confirm=()=>true;w.HTMLElement.prototype.scrollIntoView=function(){};for(const [k,v] of Object.entries(saved))w.localStorage.setItem(k,v)}})}
 let dom=boot();const w=dom.window,d=w.document,$=id=>d.getElementById(id),R=w.RobertMath;
 const click=id=>$(id).click(),change=(id,value)=>{$(id).value=String(value);$(id).dispatchEvent(new w.Event('change',{bubbles:true}))},input=(id,value)=>{$(id).value=String(value);$(id).dispatchEvent(new w.Event('input',{bubbles:true}))};
 assert.deepEqual(errors,[]);assert.ok(R);assert.equal(d.querySelectorAll('#calcTopic option').length,12);
-function answer(task,prefix){input(prefix+'Formula',task.formulaIndex);task.parts.forEach((p,i)=>{input(prefix+'Value'+i,String(p.value).replace('.',','));input(prefix+'Unit'+i,p.unit)})}
+function answer(task,prefix){change(prefix+'Formula',task.formulaIndex);task.parts.forEach((p,i)=>{input(prefix+'Value'+i,String(p.value).replace('.',','));change(prefix+'Unit'+i,p.unit)})}
 let partCount=0;for(let t=0;t<12;t++)for(let v=0;v<3;v++){
  const task=R.makeTask(t,v);partCount+=task.parts.length;assert.ok(task.parts.every(p=>Number.isFinite(p.value)&&p.value>0));assert.equal(task.formula.filter(f=>f.correct).length,1);
  const a={formula:String(task.formulaIndex),parts:task.parts.map(p=>({raw:String(p.value),unit:p.unit}))};assert.equal(R.grade(task,a).score,task.max);
@@ -31,3 +31,4 @@ click('submitExam');assert.equal($('examWorkspace').hidden,true);assert.equal($(
 click('startExam');click('submitExam');assert.match($('examResults').textContent,/0 \/ \d+ Punkte/);
 click('startExam');click('discardExam');assert.equal($('examWorkspace').hidden,true);
 assert.deepEqual(errors,[]);dom.window.close();console.log('PASS: 36 tasks / 108 numeric parts, 12 topics, reference results, parsing, units, no premature solution, hints, XSS escaping, assisted tracking, all derivations, six-task exam, resume, blank submission, discard and unlocked navigation. Real jsdom DOM, no visual rendering.');
+
